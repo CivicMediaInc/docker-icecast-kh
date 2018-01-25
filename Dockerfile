@@ -1,10 +1,10 @@
 FROM ubuntu:trusty
 
-# Based on the Dockerfile for moul/icecast by Manfred Touron <m@42.am>
-MAINTAINER Stéphane Lepin <stephane.lepin@gmail.com>
+# Based on the Dockerfile for Palakis/docker-icecast-kh by Stéphane Lepin <stephane.lepin@gmail.com>
+MAINTAINER Roman Ermakov <r.ermakov@emg.fm>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV IC_VERSION "2.4.0-kh4"
+ENV IC_VERSION "2.4.0-kh8"
 
 RUN apt-get -qq -y update && \
 	apt-get -qq -y install build-essential \
@@ -23,6 +23,9 @@ RUN easy_install supervisor && \
 
 ADD ./start.sh /start.sh
 ADD ./etc /etc
+ADD ./admin /usr/local/share/icecast/admin
+ADD ./web /usr/local/share/icecast/web
+ADD ./web/images /usr/local/share/icecast/web/images
 
 CMD ["/start.sh"]
 EXPOSE 8000
