@@ -6,8 +6,8 @@ MAINTAINER Roman Ermakov <r.ermakov@emg.fm>
 ENV DEBIAN_FRONTEND noninteractive
 ENV IC_VERSION "2.4.0-kh8"
 
-RUN apt-get -qq -y update && \
-	apt-get -qq -y install build-essential \
+RUN apt-get -y update && \
+	apt-get -y install build-essential \
 		wget curl libxml2-dev libxslt1-dev \
 		libogg-dev libvorbis-dev libtheora-dev \
 		libspeex-dev python-setuptools && \
