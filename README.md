@@ -1,5 +1,5 @@
 # Icecast-KH in Docker with some interface customization 
-![Icecast-KH index page](https://hsto.org/webt/ju/iq/-q/juiq-qavdkhyq_krwiohy173igu.png)
+[Icecast-KH index page](https://hsto.org/webt/ju/iq/-q/juiq-qavdkhyq_krwiohy173igu.png)
 
 ## Build
 
