@@ -9,7 +9,7 @@ cd docker-icecast-kh
 sudo docker build -t ykmn/docker-icecast-kh . --build-args CONTAINER_TIMEZONE=Europe/Moscow
 ```
 
-or ![get prebuilt image](https://hub.docker.com/r/ykmn/icecast-kh/).
+or [get prebuilt image](https://hub.docker.com/r/ykmn/icecast-kh/).
 
 ## Run
 
