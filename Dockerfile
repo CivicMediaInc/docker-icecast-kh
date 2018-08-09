@@ -4,7 +4,7 @@ FROM ubuntu:trusty
 MAINTAINER Roman Ermakov <r.ermakov@emg.fm>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV IC_VERSION "2.4.0-kh8"
+ENV IC_VERSION "2.4.0-kh10"
 
 RUN apt-get -y update && \
 	apt-get -y install build-essential \
