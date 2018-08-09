@@ -1,6 +1,16 @@
 # Icecast-KH in Docker with some interface customization 
 ![Icecast-KH index page](https://hsto.org/webt/ju/iq/-q/juiq-qavdkhyq_krwiohy173igu.png)
 
+## Build
+
+```bash
+git clone https://github.com/ykmn/docker-icecast-kh/
+cd docker-icecast-kh
+sudo docker build -t ykmn/docker-icecast-kh . --build-args CONTAINER_TIMEZONE=Europe/Moscow
+```
+
+or [get prebuilt image](https://hub.docker.com/r/ykmn/icecast-kh/).
+
 ## Run
 
 Run with default password, export port 8000
