@@ -8,6 +8,10 @@
 <head>
 <title>Icecast Streaming Media Server</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="player/css/player.min.css" />
+<script type="text/javascript" src="player/script/howler.min.js"></script>
+<script type="text/javascript" src="player/script/player.min.js"></script>
+
 <!-- here goes google chart -->
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
@@ -122,7 +126,16 @@ function drawVisualization() {
                         <td align="right"><a class="auth" href="/auth.xsl">Login</a></td>
                     </xsl:when>
                     <xsl:otherwise>
-                        <td align="right"> <a href="{@mount}.m3u">M3U</a> <a href="{@mount}.xspf">XSPF</a></td>
+                        <td align="right">
+			<a href="{@mount}.m3u">M3U</a> <a href="{@mount}.xspf">XSPF</a>
+                        <xsl:if test="server_type and ((server_type = 'application/ogg') or (server_type = 'audio/ogg') or (server_type = 'audio/mpeg') or (server_type = 'audio/aacp') or (server_type = 'audio/aac'))">
+				<div class="audioplayer" style="margin-top:10px;">
+					<ul class="graphic">
+					<li><a href="{@mount}" class="inline-playable"></a></li>
+					</ul>
+				</div>
+			</xsl:if>
+			</td>
                     </xsl:otherwise>
                 </xsl:choose>
         </tr></table>

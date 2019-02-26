@@ -26,6 +26,10 @@ ADD ./etc /etc
 ADD ./admin /usr/local/share/icecast/admin
 ADD ./web /usr/local/share/icecast/web
 ADD ./web/images /usr/local/share/icecast/web/images
+ADD ./web/player /usr/local/share/icecast/web/player
+ADD ./web/player/css /usr/local/share/icecast/web/player/css
+ADD ./web/player/image /usr/local/share/icecast/web/player/image
+ADD ./web/player/script /usr/local/share/icecast/web/player/script
 
 CMD ["/start.sh"]
 EXPOSE 8000
