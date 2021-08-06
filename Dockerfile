@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 
 # Based on the Dockerfile for Palakis/docker-icecast-kh by Stéphane Lepin <stephane.lepin@gmail.com>
 MAINTAINER Roman Ermakov <r.ermakov@emg.fm>
