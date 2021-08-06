@@ -21,14 +21,20 @@ google.charts.setOnLoadCallback(drawVisualization);
 
 function drawVisualization() {
   var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Label');
-  data.addColumn('number', 'Value');
-//  ['TOTAL', <xsl:value-of select="listeners" />],
+  data.addColumn('string', 'Mount');
+  data.addColumn('number', 'Clients');
+
+
   data.addRows([
-  <xsl:for-each select="source">
-  ['<xsl:value-of select="@mount" />', <xsl:value-of select="listeners" />]<xsl:if test="position() != last()"><xsl:text>,</xsl:text></xsl:if></xsl:for-each>
+	['TOTAL', <xsl:value-of select="listeners" />],
+	<xsl:for-each select="source">
+		['<xsl:value-of select="@mount" />', <xsl:value-of select="listeners" />]
+		<xsl:if test="position() != last()"><xsl:text>,</xsl:text></xsl:if>
+	</xsl:for-each>
   ]);
 
+
+// Options for PieChart:
   var options = {
       title: 'Icecast Mounts Status',
       fontName: 'Cuprum, "Segoe UI", tahoma',
@@ -41,9 +47,8 @@ function drawVisualization() {
       pieSliceTextStyle: {fontSize: 12},
   };
 // pieSliceText can be percentage, value, label or none
-    
   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
+  chart.draw(data, options);
 }
 
 
@@ -64,7 +69,7 @@ function drawVisualization() {
 <img src="/images/corner_topleft.jpg" class="corner" style="display: none" alt=""/>
 </div>
 <div class="newscontent">
-<div id="chart_div" style="width:100%; height:460px;"></div>
+<div id="chart_div" style="width:100%; height:360px;"></div>
 <div class="roundbottom">
 <img src="/images/corner_bottomleft.jpg" class="corner" style="display: none" alt="" />
 </div>

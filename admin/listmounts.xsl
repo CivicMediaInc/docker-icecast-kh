@@ -8,6 +8,9 @@
 <head>
 <title>Icecast Streaming Media Server</title>
 <link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="stylesheet" type="text/css" href="/player/css/player.min.css" />
+<script type="text/javascript" src="/player/script/howler.min.js"></script>
+<script type="text/javascript" src="/player/script/player.min.js"></script>
 </head>
 <body>
 
@@ -27,10 +30,23 @@
                 <td><h3>Mount Point <xsl:value-of select="@mount" /></h3></td>
                 <xsl:choose>
                     <xsl:when test="authenticator">
-                        <td align="right"><a class="auth" href="/auth.xsl">Login</a></td>
+                        <td align="right"><a class="auth" href="/auth.xsl">Login</a>
+			</td>
                     </xsl:when>
                     <xsl:otherwise>
-                        <td align="right"> <a href="{@mount}.m3u">M3U</a> <a href="{@mount}.xspf">XSPF</a></td>
+                        <td align="right"> <a href="{@mount}.m3u">M3U</a> <!--<a href="{@mount}.xspf">XSPF</a>-->
+				<div class="audioplayer" style="margin-top:10px;">
+					<ul class="graphic">
+					<li><a href="{@mount}" class="inline-playable"></a></li>
+					</ul>
+				</div>
+<!--
+					<audio controls="controls" preload="none">
+					<source src="{@mount}" type="{server_type}" />
+					</audio>
+-->
+
+			</td>
                     </xsl:otherwise>
                 </xsl:choose>
         </tr></table>
