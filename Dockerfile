@@ -4,22 +4,24 @@ FROM ubuntu:bionic
 MAINTAINER Roman Ermakov <r.ermakov@emg.fm>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV IC_VERSION "2.4.0-kh10"
+ENV IC_VERSION "2.4.0-kh22"
 
 RUN apt-get -y update && \
-	apt-get -y install build-essential \
+	apt-get -y install python3 python3-pip build-essential \
 		wget curl libxml2-dev libxslt1-dev \
 		libogg-dev libvorbis-dev libtheora-dev \
-		libspeex-dev python-setuptools && \
+		libspeex-dev libssl-dev libcurl4-openssl-dev
+
+RUN \
 	wget "https://github.com/karlheyes/icecast-kh/archive/icecast-$IC_VERSION.tar.gz" -O- | tar zxvf - && \
 	cd "icecast-kh-icecast-$IC_VERSION" && \
-	./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var && \
+	./configure --with-openssl=yes --prefix=/usr --sysconfdir=/etc --localstatedir=/var && \
+	grep SSL config.h && \
 	make && make install && useradd icecast && \
 	chown -R icecast /etc/icecast.xml && \
 	sed -i "s/<sources>[^<]*<\/sources>/<sources>42<\/sources>/g" /etc/icecast.xml
 
-RUN easy_install supervisor && \
-    easy_install supervisor-stdout
+RUN pip3 install supervisor
 
 ADD ./start.sh /start.sh
 ADD ./etc /etc
