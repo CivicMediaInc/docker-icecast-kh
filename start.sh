@@ -41,7 +41,7 @@ if [ -n "$ICECAST_MAX_LISTENERS" ]; then
 fi
 
 
-cat /etc/icecast.xml
+cat /etc/icecast/icecast.xml
 
 chown -R icecast /var/log/icecast
 supervisord -n -c /etc/supervisord.conf
