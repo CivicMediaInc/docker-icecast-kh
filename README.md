@@ -1,6 +1,12 @@
 # Icecast-KH 2.4.0-kh10 in Docker with some interface customization 
 ![Icecast-KH index page](https://hsto.org/webt/ju/iq/-q/juiq-qavdkhyq_krwiohy173igu.png)
 
+## to rebuild for our environment...
+docker build -t liewegas/icecast-kh .
+docker push liewegas/icecast-kh
+
+
+
 ## Build
 
 ```bash
